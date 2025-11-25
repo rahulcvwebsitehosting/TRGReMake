@@ -18,12 +18,11 @@ const BottomNav: React.FC<BottomNavProps> = ({ onRestrictedClick }) => {
   const [activeTab, setActiveTab] = useState('home');
 
   const handleNavClick = (id: string) => {
-    if (id === 'home') {
-      setActiveTab(id);
-    } else {
-      // For Profit, Task, Team, Mine - show popup instead of navigating
-      onRestrictedClick();
-    }
+    // Trigger audio popup for ALL bottom navigation items
+    onRestrictedClick();
+    
+    // Optimistically set active tab in background
+    setActiveTab(id);
   };
 
   return (

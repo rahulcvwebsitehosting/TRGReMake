@@ -17,10 +17,8 @@ const menuItems: GridMenuItem[] = [
 
 const GridMenu: React.FC<GridMenuProps> = ({ onRestrictedClick }) => {
   const handleItemClick = (id: number) => {
-    // ID 1 is Withdrawal
-    if (id === 1) {
-      onRestrictedClick();
-    }
+    // Trigger the restricted action for ALL items in this menu
+    onRestrictedClick();
   };
 
   return (

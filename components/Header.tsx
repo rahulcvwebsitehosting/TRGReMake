@@ -1,7 +1,11 @@
 import React from 'react';
 import { Headphones } from 'lucide-react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onRestrictedClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onRestrictedClick }) => {
   return (
     <header className="bg-white w-full h-14 flex items-center justify-between px-4 md:px-8 shadow-sm relative z-10">
       {/* Logo Area */}
@@ -16,7 +20,10 @@ const Header: React.FC = () => {
       </div>
 
       {/* Language Selector */}
-      <button className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden hover:opacity-80 transition-opacity">
+      <button 
+        onClick={onRestrictedClick}
+        className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden hover:opacity-80 transition-opacity"
+      >
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30" height="15">
             <clipPath id="s">
             <path d="M0,0 v30 h60 v-30 z"/>

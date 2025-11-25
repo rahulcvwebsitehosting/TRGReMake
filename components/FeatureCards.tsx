@@ -1,11 +1,18 @@
 import React from 'react';
 import { HelpCircle, Gift, Target, HeartHandshake } from 'lucide-react';
 
-const FeatureCards: React.FC = () => {
+interface FeatureCardsProps {
+  onRestrictedClick: () => void;
+}
+
+const FeatureCards: React.FC<FeatureCardsProps> = ({ onRestrictedClick }) => {
   return (
     <div className="grid grid-cols-2 gap-4">
       {/* Help Center */}
-      <div className="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity">
+      <div 
+        onClick={onRestrictedClick}
+        className="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+      >
         <div className="absolute top-4 left-4 z-10">
            {/* Stars decoration */}
            <div className="text-white opacity-80 text-xs absolute -top-2 -left-2">✦</div>
@@ -23,7 +30,10 @@ const FeatureCards: React.FC = () => {
       </div>
 
       {/* Red Envelope */}
-      <div className="bg-gradient-to-br from-orange-400 to-red-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity">
+      <div 
+        onClick={onRestrictedClick}
+        className="bg-gradient-to-br from-orange-400 to-red-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+      >
          <div className="absolute top-2 right-10 text-yellow-200 text-xs">✦</div>
          
          {/* Mock 3D Graphic */}
@@ -41,7 +51,10 @@ const FeatureCards: React.FC = () => {
       </div>
 
       {/* Lucky Wheel */}
-      <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity">
+      <div 
+        onClick={onRestrictedClick}
+        className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+      >
          
          {/* Mock 3D Graphic */}
          <div className="absolute right-4 top-2 md:top-4 w-20 h-20">
@@ -57,7 +70,10 @@ const FeatureCards: React.FC = () => {
       </div>
 
       {/* Charity Event */}
-      <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity">
+      <div 
+        onClick={onRestrictedClick}
+        className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg p-4 h-32 md:h-40 relative overflow-hidden shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+      >
          
          {/* Mock 3D Graphic */}
          <div className="absolute right-4 top-4">
@@ -73,7 +89,7 @@ const FeatureCards: React.FC = () => {
         </div>
       </div>
 
-      {/* Partial Blue Card at bottom (simulating the cut-off card in screenshot) */}
+      {/* Partial Blue Card at bottom */}
       <div className="col-span-1 bg-blue-400 rounded-lg p-4 h-24 relative overflow-hidden shadow-md opacity-80">
           <div className="absolute bottom-3 left-4 text-white font-bold text-sm">...</div>
       </div>
